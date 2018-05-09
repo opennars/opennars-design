@@ -1,0 +1,24 @@
+Basic NARS Cycle
+------------------
+
+parse input tasks 
+
+for each term in task term tree (upto depth 3)
+	add task to concept(term) - creating concept if necessary
+
+loop
+	activeconcept = select concept
+	select tasklink from active concept
+	process selected task in activeconcept - including execting operations
+	select belief from tasklink target
+
+	do inference on (task, belief)
+
+	for each task in inference results
+		for each term in task term tree (upto depth 3)
+			add task to concept(term)
+			update links used based on inference results
+
+
+
+tasks, links, beliefs and concepts are removed, based on budget value, when containers reach capacity
